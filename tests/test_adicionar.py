@@ -15,3 +15,10 @@ def test_adicionar_Evento_Sucesso(agenda, capsys):
     assert agenda.eventos[0]['nome'] == "Final dos 100m"
     assert agenda.eventos[0]['inicio'] == datetime(2024, 7, 24, 10, 0)
     assert agenda.eventos[0]['fim'] == datetime(2024, 7, 24, 11, 0)
+
+# Ciclo 3
+def test_adicionar_Evento_data_invalida(agenda, capsys):
+    agenda.add_Evento("Final dos 100m", "data_invalida", "2024-07-24 11:00")
+    out, _ = capsys.readouterr()
+    assert out.strip() == "Formato de data e hora inválido. Use 'YYYY-MM-DD HH:MM'."
+    assert len(agenda.eventos) == 0
