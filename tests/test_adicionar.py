@@ -43,3 +43,10 @@ def test_adicionar_Evento_hora_inicio_maior_que_fim(agenda, capsys):
     out, _ = capsys.readouterr()
     assert out.strip() == "A hora de início deve ser anterior à hora de término."
     assert len(agenda.eventos) == 0
+
+# Ciclo 7
+def test_adicionar_Evento_data_inicio_maior_que_fim(agenda, capsys):
+    agenda.add_Evento("Final dos 100m", "2024-07-25 10:00", "2024-07-24 11:00")
+    out, _ = capsys.readouterr()
+    assert out.strip() == "A hora de início deve ser anterior à hora de término."
+    assert len(agenda.eventos) == 0

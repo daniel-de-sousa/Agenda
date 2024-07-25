@@ -4,7 +4,7 @@ class Agenda:
         self.eventos = []
         pass
     
-    # Ciclo 6
+    # Ciclo 7
     def add_Evento(self, nome, inicio, fim):
         if any(valor == "" for valor in (nome, inicio, fim)):
             print("Existe algum campo vazio.")
