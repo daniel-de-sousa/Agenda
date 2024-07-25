@@ -33,6 +33,7 @@ class Agenda:
         })
 
         print("Evento adicionado com sucesso.")
+        return
     
     # Ciclo 13
     def get_Eventos(self):
@@ -44,6 +45,18 @@ class Agenda:
             print("Nenhum evento agendado.")
 
         return
+
+    # Ciclo 14
+    def remove_Evento(self, nome):
+        try:
+            self.eventos.remove(next(evento for evento in self.eventos if evento['nome'] == nome))
+            print("Evento removido com sucesso.")
+        except ValueError:
+            print(f"Evento '{nome}' não encontrado na lista.")
+            return
+
+        return
+
 
     # Ciclo 1
     def sair(self):
