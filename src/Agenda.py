@@ -34,7 +34,7 @@ class Agenda:
 
         print("Evento adicionado com sucesso.")
     
-    # Ciclo 12
+    # Ciclo 13
     def get_Eventos(self):
         formato = "%Y-%m-%d %H:%M"
         if len(self.eventos) >= 1:
