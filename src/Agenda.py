@@ -34,9 +34,15 @@ class Agenda:
 
         print("Evento adicionado com sucesso.")
     
-    # Ciclo 11
+    # Ciclo 12
     def get_Eventos(self):
-        print("Nenhum evento agendado.")
+        formato = "%Y-%m-%d %H:%M"
+        if len(self.eventos) >= 1:
+            for evento in self.eventos:
+                print(f"{evento['nome']}: {evento['inicio'].strftime(formato)} a {evento['fim'].strftime(formato)}")
+        else:
+            print("Nenhum evento agendado.")
+
         return
 
     # Ciclo 1
