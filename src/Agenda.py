@@ -33,6 +33,11 @@ class Agenda:
         })
 
         print("Evento adicionado com sucesso.")
+    
+    # Ciclo 11
+    def get_Eventos(self):
+        print("Nenhum evento agendado.")
+        return
 
     # Ciclo 1
     def sair(self):
