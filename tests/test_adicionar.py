@@ -22,3 +22,10 @@ def test_adicionar_Evento_data_invalida(agenda, capsys):
     out, _ = capsys.readouterr()
     assert out.strip() == "Formato de data e hora inválido. Use 'YYYY-MM-DD HH:MM'."
     assert len(agenda.eventos) == 0
+
+# Ciclo 4
+def test_adicionar_Evento_hora_invalida(agenda, capsys):
+    agenda.add_Evento("Final dos 100m", "2024-07-24 10:00", "hora_inválida")
+    out, _ = capsys.readouterr()
+    assert out.strip() == "Formato de data e hora inválido. Use 'YYYY-MM-DD HH:MM'."
+    assert len(agenda.eventos) == 0
