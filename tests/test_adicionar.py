@@ -60,3 +60,13 @@ def test_add_Eventos_conflito(agenda, capsys):
     out, _ = capsys.readouterr()
     assert out.strip() == "Conflito de agendamento detectado."
     assert len(agenda.eventos) == 1
+
+# Ciclo 9
+def test_add_Eventos_sem_conflito(agenda, capsys):
+    agenda.add_Evento("Final dos 100m", "2024-07-24 10:00", "2024-07-24 11:00")
+    out, _ = capsys.readouterr()
+    assert out.strip() == "Evento adicionado com sucesso."
+    agenda.add_Evento("Final dos 200m", "2024-07-24 11:30", "2024-07-24 12:30")
+    out, _ = capsys.readouterr()
+    assert out.strip() == "Evento adicionado com sucesso."
+    assert len(agenda.eventos) == 2
