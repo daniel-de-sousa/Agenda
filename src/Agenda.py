@@ -4,7 +4,7 @@ class Agenda:
         self.eventos = []
         pass
     
-    # Ciclo 7
+    # Ciclo 10
     def add_Evento(self, nome, inicio, fim):
         if any(valor == "" for valor in (nome, inicio, fim)):
             print("Existe algum campo vazio.")
@@ -21,6 +21,11 @@ class Agenda:
             print("A hora de início deve ser anterior à hora de término.")
             return
         
+        for evento in self.eventos:
+            if not (fim_dt <= evento['inicio'] or inicio_dt >= evento['fim']):
+                print("Conflito de agendamento detectado.")
+                return
+
         self.eventos.append({
             'nome': nome,
             'inicio': inicio_dt,
@@ -28,6 +33,34 @@ class Agenda:
         })
 
         print("Evento adicionado com sucesso.")
+        return
+    
+    # Ciclo 13
+    def get_Eventos(self):
+        formato = "%Y-%m-%d %H:%M"
+        if len(self.eventos) >= 1:
+            for evento in self.eventos:
+                print(f"{evento['nome']}: {evento['inicio'].strftime(formato)} a {evento['fim'].strftime(formato)}")
+        else:
+            print("Nenhum evento agendado.")
+
+        return
+
+    # Ciclo 16
+    def remove_Evento(self, nome):
+        if len(self.eventos) <= 0:
+            print("Não existem eventos cadastrados")
+            return
+        
+        try:
+            self.eventos.remove(next(evento for evento in self.eventos if evento['nome'] == nome))
+            print("Evento removido com sucesso.")
+        except StopIteration:
+            print("Não existem evento com esse nome")
+            return
+
+        return
+
 
     # Ciclo 1
     def sair(self):
